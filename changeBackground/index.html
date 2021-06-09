@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bacground</title>
+    <style>
+        body{
+            transition: all 1.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    
+<!-- <p id="demo">para</p> -->
+<!-- <div id="main">div</div> -->
+<button type="button"> clcik here</button>
+
+<script>
+// document.getElementById("demo").innerHTML = Math.random();
+    const buttonss = document.querySelector('button')
+    const body = document.querySelector('body')
+    const colr = ['red','green','blue','yellow','black','grey','purple','cyan']
+
+    body.style.background = 'grey';
+    buttonss.addEventListener('click', onclck)
+
+    function onclck(){
+       const x =  parseInt(Math.random()*colr.length);
+       body.style.background = colr[x];
+    }
+    
+    </script>
+</body>
+</html>
