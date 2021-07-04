@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accounting table</title>
+</head>
+<body>
+    <script>
+        const data = [
+  {
+    date: "jan 1,20X3",
+    desciption: "balance forword",
+    debit: 0,
+    credit: 0,
+  },
+  {
+    date: "jan 12,20X3",
+    desciption: "collected receivable",
+    debit: 10000,
+    credit: 0,
+  },
+  {
+    date: "jan 3,20X3",
+    desciption: "cash sale",
+    debit: 5000,
+    credit: 0,
+  },
+  {
+    date: "jan 10,20X3",
+    desciption: "paid rent",
+    debit: 0,
+    credit: 7000,
+  },
+  {
+    date: "jan 7,20X3",
+    desciption: "paid salary",
+    debit: 0,
+    credit: 3000,
+  },
+  {
+    date: "jan 8,20X3",
+    desciption: "cash sale",
+    debit: 4000,
+    credit: 0,
+  },
+  {
+    date: "jan 10,20X3",
+    desciption: "paid bills",
+    debit: 0,
+    credit: 2000,
+  },
+  {
+    date: "jan 10,20X3",
+    desciption: "paid tax",
+    debit: 0,
+    credit: 1000,
+  },
+  {
+    date: "jan 12,20X3",
+    desciption: "collected receivable",
+    debit: 7000,
+    credit: 0,
+  },
+];
+
+//sorting based on string:
+
+const datesort = (data) => {
+    return data.sort((a,b) => {
+       if(a.date > b.date){
+           return 1;
+       }
+       else{
+           return -1;
+       }
+    })
+}
+console.log(datesort(data));
+
+
+// summation of credit and debit
+
+const debitt = (data) => {
+    return data.reduce((acc,prese) => {
+        return acc + prese.debit
+    },0)
+    
+}
+console.log("sum of debit - " + debitt(data));
+
+
+
+//summation of credit
+
+
+var creditsum = (data) =>{
+    return data.reduce((accu,present) => {
+        return accu + present.credit
+    },0)
+}
+
+console.log("sum of credit - " + creditsum(data));
+
+
+// find all debits greater than 5000
+
+const sumDebit = (data) => {
+    return data.filter((item)=>{
+        if(item.debit >= 5000){
+            return console.log("debits - " + item.debit);
+        }
+    })
+}
+sumDebit(data)
+
+ 
+// find all credits less than 3000
+
+
+const sumCredit = (data) => {
+    return data.filter((item)=>{
+        if(item.credit < 3000){
+            return console.log("credit - " + item.credit);
+        }
+    })
+}
+sumCredit(data)
+
+
+
+
+
+// making table
+
+
+const table = (data) => {
+    console.log("Date             " , "Description          " , "Credit     " , "Debit    ");
+    data.map((item) => {
+        return console.log(item.date + "      ", item.desciption + "          ", item.credit + "     ", item.credit + "     ");
+    })
+}
+
+
+
+
+table(data)
+    </script>
+</body>
+</html>
